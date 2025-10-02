@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prototipo WebAR</title>
+    <!-- A-Frame -->
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <!-- AR.js para RA -->
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <h2 style="position:absolute;z-index:1;color:white;background:rgba(0,0,0,0.5);padding:5px;">
+      Prototipo WebAR - QR de emergencia
+    </h2>
+
+    <a-scene embedded arjs>
+      <!-- Marcador Hiro -->
+      <a-marker preset="hiro">
+        <a-box position="0 0.5 0" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-text value="¡Agáchate y cúbrete aquí!" position="-1 1 0"></a-text>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js');
+      }
+    </script>
+  </body>
+</html>
